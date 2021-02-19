@@ -8,11 +8,11 @@
 <body>
   <script src="lib/Promise.js"></script>
   <script>
-    const p = new MyPromise((resolve, reject) => {
+    const p = new Promise((resolve, reject) => {
       console.log('MyPromise--');
       setTimeout(() => {
-        resolve(1) 
-        // reject('失敗原因')
+        // resolve(1) 
+        reject('失敗原因')
       }, 2000);
     })
 
@@ -21,16 +21,20 @@
         console.log('resolve---', res);
         return res + 1
       },
-      (reason) => {
-        console.log('reject--', reason)
-      }
+      // (reason) => {
+      //   console.log('reject--', reason)
+      // }
     ).then(
       (res) => {
         console.log('resolve2---', res);
         return res + 1
       },
-      (reason) => {
-        console.log('reject2--', reason)
+      // (reason) => {
+      //   console.log('reject2--', reason)
+      // }
+    ).catch(
+      (error) => {
+        console.error(error)
       }
     )
   </script>
