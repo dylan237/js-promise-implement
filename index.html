@@ -9,18 +9,28 @@
   <script src="lib/Promise.js"></script>
   <script>
     const p = new MyPromise((resolve, reject) => {
+      console.log('MyPromise--');
       setTimeout(() => {
-        resolve('成功') 
+        resolve(1) 
         // reject('失敗原因')
       }, 2000);
     })
 
     p.then(
       (res) => {
-      console.log('resolve---', res);
+        console.log('resolve---', res);
+        return res + 1
       },
       (reason) => {
         console.log('reject--', reason)
+      }
+    ).then(
+      (res) => {
+        console.log('resolve2---', res);
+        return res + 1
+      },
+      (reason) => {
+        console.log('reject2--', reason)
       }
     )
   </script>
