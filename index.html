@@ -8,7 +8,21 @@
 <body>
   <script src="lib/Promise.js"></script>
   <script>
-    console.log('MyPromise--', MyPromise)
+    const p = new MyPromise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('成功') 
+        // reject('失敗原因')
+      }, 2000);
+    })
+
+    p.then(
+      (res) => {
+      console.log('resolve---', res);
+      },
+      (reason) => {
+        console.log('reject--', reason)
+      }
+    )
   </script>
 </body>
 </html>
