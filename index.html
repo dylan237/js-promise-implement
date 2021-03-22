@@ -6,17 +6,16 @@
   <title>custom promise implement</title>
 </head>
 <body>
+  <!-- <script src="lib/Promise-simple.js"></script> -->
   <!-- <script src="lib/Promise-es6.js"></script> -->
-  <script src="lib/Promise-simple.js"></script>
+  <script src="lib/typescript/Promise.js"></script>
   <script>
 
     function logNumber(num = 0) {
-
       return new MyPromise((resolve) => {
-        const increasedNum = num + 1
-        console.log('increasedNum---', increasedNum);
         setTimeout(() => {
-          resolve(increasedNum) 
+          console.log('increasedNum---', num + 1);
+          resolve(num + 1) 
         }, 1000);
       })
     }
